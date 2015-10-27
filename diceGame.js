@@ -15,26 +15,6 @@ var score;
 var playerHasTakenTwoDice;
 var remainingDice;
 
-//remove and score a second die, if the user selects one
-// var promptSecondDie = function(firstDieTaken) {
-//   readline.question("\nYou have the option to take a second die once (hit enter to decline)\n", function(secondDieTaken) {
-//     if (secondDieTaken !== "" && secondDieTaken !== firstDieTaken) {
-//       score += remainingDice.removeAndScoreTwoDice(firstDieTaken, secondDieTaken);
-//       playerHasTakenTwoDice = true;
-//     } else {
-//       score += remainingDice.removeAndScoreDie(firstDieTaken);
-//     }
-//     playNextRound();
-//   });
-// };
-
-// //prompt the user to select a die to be scored and if eligible, prompts the user to remove a second die
-// var promptFirstDie = function() {
-//   readline.question("\nenter the id of the die you would like to keep\n", function(firstDieTaken) {
-//
-//   });
-// };
-
 //rolls and scores the players remaining dice
 var playNextRound = function(res) {
   if (remainingDice.collection.length > 0) {
@@ -61,15 +41,13 @@ app.get('/', function(req, res) {
   playerHasTakenTwoDice = false;
   playNextRound(res);
 });
-app.get('/remove/:id', function(req, res) {
-  score += remainingDice.removeAndScoreDie(req.params.id);
-  playNextRound(res);
-});
-app.get('/remove/:id/:id2', function(req, res) {
-  if (!playerHasTakenTwoDice) {
-    score += remainingDice.removeAndScoreDie(req.params.id);
-    score += remainingDice.removeAndScoreDie(req.params.id2);
+
+app.get('/remove=:ids', function(req, res) {
+  var ids = req.params.ids.split(',');
+  score += remainingDice.removeAndScoreDie(ids[0]);
+  if (ids.length === 2 && !playerHasTakenTwoDice) {
+    score += remainingDice.removeAndScoreDie(ids[1]);
     playerHasTakenTwoDice = true;
-    playNextRound(res);
   }
+  playNextRound(res);
 });
