@@ -19,7 +19,6 @@ var remainingDice;
 var playNextRound = function(res) {
   if (remainingDice.collection.length > 0) {
     var responseJSON;
-    console.log("\nSCORE: " + score);
     remainingDice.rollTheDice();
     responseJSON = {
       "score": score,
@@ -28,7 +27,9 @@ var playNextRound = function(res) {
     };
   } else {
     responseJSON = {
-      "score": score
+      "score": score,
+      remainingDice: {},
+      "hasTakenTwo": playerHasTakenTwoDice
     };
   }
   res.send(responseJSON);
@@ -42,6 +43,9 @@ app.get('/', function(req, res) {
   playNextRound(res);
 });
 
+//ENHANCE: don't allow the user to enter more than two dice. Warn the user when they attempt to take two dice twice
+//remove and score the dice ids. If 2 are selected change the boolean playerHasTakenTwoDice
+// to true.
 app.get('/remove=:ids', function(req, res) {
   var ids = req.params.ids.split(',');
   score += remainingDice.removeAndScoreDie(ids[0]);

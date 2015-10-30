@@ -21,10 +21,8 @@ RemainingDice.prototype.rollTheDice = function() {
 RemainingDice.prototype.removeAndScoreDie = function(id) {
   for (var i = 0; i < this.collection.length; i++) {
     if (this.collection[i].id == id) {
-      console.log("SUCCESS: " + this.collection[i].value);
       var value = this.collection[i].value
       this.collection.splice(i, 1);
-      console.log("SUCCESS: " + value);
       if (value === 3) {
         return 0;
       } else {
@@ -32,20 +30,6 @@ RemainingDice.prototype.removeAndScoreDie = function(id) {
       }
     }
   }
-};
-
-//removes two dice and returns the score or the two. This function is necessary to ensure the
-//order the dice are removed in the correct order
-RemainingDice.prototype.removeAndScoreTwoDice = function(firstDieTaken, secondDieTaken) {
-  var score = 0
-  if (parseInt(firstDieTaken) >= secondDieTaken) {
-    score += this.removeAndScoreDie(firstDieTaken);
-    score += this.removeAndScoreDie(secondDieTaken);
-  } else {
-    score += this.removeAndScoreDie(secondDieTaken);
-    score += this.removeAndScoreDie(firstDieTaken);
-  }
-  return score;
 };
 
 module.exports = RemainingDice;
