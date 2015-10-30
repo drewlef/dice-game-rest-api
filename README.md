@@ -7,7 +7,8 @@ rolls they must take at least one die and has the option of taking
 a second only ONLY once a game. The user tries to achieve the lowest
 score with threes counting as zero
 
-# type 'node diceGame.js' to play
+to start the server, type
+# 'node diceGame.js'
 to start the game, type 
 # curl http://localhost:3000
 in your terminal. 
