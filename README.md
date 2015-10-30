@@ -20,7 +20,11 @@ or
 # http://localhost:3000/remove=0,1 
 if you would to remove two dice (only once a turn)
 #sample game
+
+
 curl http://localhost:3000
+
+
 {
   "score": 0,
   "remainingDice": [
@@ -70,7 +74,11 @@ curl http://localhost:3000/remove=2
   ],
   "hasTakenTwo": false
 }
+
+
 curl http://localhost:3000/remove=3
+
+
 {
   "score": 0,
   "remainingDice": [
@@ -89,7 +97,11 @@ curl http://localhost:3000/remove=3
   ],
   "hasTakenTwo": false
 }
+
+
 curl http://localhost:3000/remove=0,1
+
+
 {
   "score": 3,
   "remainingDice": [
@@ -100,7 +112,11 @@ curl http://localhost:3000/remove=0,1
   ],
   "hasTakenTwo": true
 }
+
+
 curl http://localhost:3000/remove=4
+
+
 {
   "score": 4,
   "remainingDice": {},
