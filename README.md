@@ -46,7 +46,8 @@ curl http://localhost:3000
     }
   ],
   "hasTakenTwo": false
-}Drews-Mac-Pro:~ Drew$ curl http://localhost:3000/remove=2
+}
+curl http://localhost:3000/remove=2
 {
   "score": 0,
   "remainingDice": [
@@ -68,7 +69,8 @@ curl http://localhost:3000
     }
   ],
   "hasTakenTwo": false
-}Drews-Mac-Pro:~ Drew$ curl http://localhost:3000/remove=3
+}
+curl http://localhost:3000/remove=3
 {
   "score": 0,
   "remainingDice": [
@@ -86,7 +88,8 @@ curl http://localhost:3000
     }
   ],
   "hasTakenTwo": false
-}Drews-Mac-Pro:~ Drew$ curl http://localhost:3000/remove=0,1
+}
+curl http://localhost:3000/remove=0,1
 {
   "score": 3,
   "remainingDice": [
@@ -96,7 +99,8 @@ curl http://localhost:3000
     }
   ],
   "hasTakenTwo": true
-}Drews-Mac-Pro:~ Drew$ curl http://localhost:3000/remove=4
+}
+curl http://localhost:3000/remove=4
 {
   "score": 4,
   "remainingDice": {},
